@@ -19,3 +19,19 @@ class Student {
         this.name = name;
     }
 }
+
+class StudyGroup {
+    private Teacher teacher;
+    private List<Student> students;
+
+    public StudyGroup(Teacher teacher, List<Student> students) {
+        this.teacher = teacher;
+        this.students = students;
+    }
+}
+
+class StudyGroupService {
+    public StudyGroup createStudyGroup(Teacher teacher, List<Student> students) {
+        return new StudyGroup(teacher, students);
+    }
+}
