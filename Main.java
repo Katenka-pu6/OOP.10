@@ -54,3 +54,12 @@ class Controller {
         return List.of(new Student(1, "Студент 1"), new Student(2, "Студент 2"));
     }
 }
+
+public class Main {
+    public static void main(String[] args) {
+        StudyGroupService studyGroupService = new StudyGroupService();
+        Controller controller = new Controller(studyGroupService);
+
+        StudyGroup studyGroup = controller.createStudyGroupWithIds(1, List.of(1, 2));
+    }
+}
