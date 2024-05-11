@@ -35,3 +35,22 @@ class StudyGroupService {
         return new StudyGroup(teacher, students);
     }
 }
+
+class Controller {
+    private StudyGroupService studyGroupService;
+
+    public Controller(StudyGroupService studyGroupService) {
+        this.studyGroupService = studyGroupService;
+    }
+
+    public StudyGroup createStudyGroupWithIds(int teacherId, List<Integer> studentIds) {
+        Teacher teacher = new Teacher(teacherId, "Преподаватель");
+        List<Student> students = getStudentsByIds(studentIds);
+        
+        return studyGroupService.createStudyGroup(teacher, students);
+    }
+
+    private List<Student> getStudentsByIds(List<Integer> studentIds) {
+        return List.of(new Student(1, "Студент 1"), new Student(2, "Студент 2"));
+    }
+}
